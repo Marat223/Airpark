@@ -5,15 +5,53 @@
  */
 package org.mustafin.airpark.search;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 import org.mustafin.airpark.airship.AbstractAirship;
+import org.mustafin.airpark.airship.AirshipParameterEnum;
+import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AbstractCompany;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 /**
  *
- * @author Marat_Mustafin
+ * @author marat
  */
-public interface Search {
-    Collection<AbstractAirship> search(Collection<AbstractCompany> companies, SearchInputParameters sip);
+public class Search {
+
+	public List<AbstractAirship> proceed(List<AbstractCompany> companies, SearchInputParameters searchInputParameters,
+			AirshipParameterEnum parameterType, Object value) {
+		final List<AbstractAirship> foundedAirship = new ArrayList<>();
+		switch (parameterType) {
+		case TYPE:
+			for (AbstractCompany company : companies) {
+				for (AbstractAirship airship : company.getPark()) {
+					if ((AirshipType) value == airship.getType()) {
+						foundedAirship.add(airship);
+					}
+				}
+			}
+			break;
+		case CAPACITY:
+		case CARRYING:
+		case DISTANCE:
+			findAirshipBySpecificValue(foundedAirship, companies, (int) value);
+			break;
+		default:
+			break;
+		}
+		return foundedAirship;
+	}
+
+	private void findAirshipBySpecificValue(final List<AbstractAirship> foundedAirship, List<AbstractCompany> companies,
+			int value) {
+		for (AbstractCompany company : companies) {
+			for (AbstractAirship airship : company.getPark()) {
+				if (value == airship.getCapacity()) {
+					foundedAirship.add(airship);
+				}
+			}
+		}
+	}
+
 }
