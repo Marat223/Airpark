@@ -9,7 +9,7 @@ import org.mustafin.airpark.airship.AirshipParameterEnum;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import org.mustafin.airpark.airship.AbstractAirship;
+import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.company.AbstractCompany;
 
 /**
@@ -18,8 +18,8 @@ import org.mustafin.airpark.company.AbstractCompany;
  */
 public class AirshipSorting {
 
-    public List<AbstractAirship> proceed(AbstractCompany company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
-        Comparator<AbstractAirship> comparatorAirship;
+    public List<Airship> proceed(AbstractCompany company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
+        Comparator<Airship> comparatorAirship;
         switch (sortEnum) {
             case NAME:
                 comparatorAirship = (airship1, airship2) -> airship1.getName().compareTo(airship2.getName());
@@ -38,7 +38,7 @@ public class AirshipSorting {
         }
     }
 
-    private List<AbstractAirship> sortAirships(AbstractCompany company, Comparator comparator) {
+    private List<Airship> sortAirships(AbstractCompany company, Comparator comparator) {
         Collections.sort(company.getPark(), comparator);
         return company.getPark();
     }

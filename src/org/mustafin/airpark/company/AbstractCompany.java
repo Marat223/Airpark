@@ -8,7 +8,7 @@ package org.mustafin.airpark.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.mustafin.airpark.airship.AbstractAirship;
+import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
 
 /**
@@ -19,7 +19,7 @@ public abstract class AbstractCompany {
 
     private int id;
     private String name;
-    private final List<AbstractAirship> park = new ArrayList<>();
+    private final List<Airship> park = new ArrayList<>();
     private final List<AirshipType> avaliableAirships = new ArrayList<>();
     private int maxAirshipsValue;
 
@@ -32,15 +32,15 @@ public abstract class AbstractCompany {
         this.maxAirshipsValue = maxAirshipsValue;
     }
 
-    public List<AbstractAirship> getPark() {
+    public List<Airship> getPark() {
         return park;
     }
 
-    public void addAirShip(AbstractAirship airship) {
+    public void addAirShip(Airship airship) {
         park.add(airship);
     }
 
-    public boolean removeAirship(AbstractAirship airship) {
+    public boolean removeAirship(Airship airship) {
         return park.remove(airship);
     }
 

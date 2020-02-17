@@ -13,7 +13,7 @@ import org.mustafin.airpark.airshipType.AirshipType;
  *
  * @author marat
  */
-public abstract class AbstractAirship {
+public class Airship {
 
     private int id;
     private String name;
@@ -22,7 +22,7 @@ public abstract class AbstractAirship {
     private int carrying;
     private int maxDistance;
 
-    public AbstractAirship(int id, String name, AirshipType type, int capacity, int carrying, int maxDistance) {
+    public Airship(int id, String name, AirshipType type, int capacity, int carrying, int maxDistance) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -31,7 +31,7 @@ public abstract class AbstractAirship {
         this.maxDistance = maxDistance;
     }
 
-    public AbstractAirship() {
+    public Airship() {
     }
 
     public String getName() {
@@ -101,7 +101,7 @@ public abstract class AbstractAirship {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractAirship other = (AbstractAirship) obj;
+        final Airship other = (Airship) obj;
         if (this.id != other.id) {
             return false;
         }
