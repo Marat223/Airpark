@@ -10,11 +10,6 @@ package org.mustafin.airpark.airship;
 import java.util.Objects;
 import org.mustafin.airpark.airshipType.AirshipType;
 
-//remove signature
-/**
- *
- * @author marat
- */
 public class Airship {
 
     private int id;

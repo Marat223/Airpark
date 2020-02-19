@@ -1,9 +1,3 @@
-//remove signature
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.mustafin.airpark.sort;
 
 import org.mustafin.airpark.airship.AirshipParameterEnum;
@@ -11,16 +5,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import org.mustafin.airpark.airship.Airship;
-import org.mustafin.airpark.company.AbstractCompany;
+import org.mustafin.airpark.company.AirshipOwner;
 
-//remove signature
-/**
- *
- * @author marat
- */
 public class AirshipSorting {
 
-    public List<Airship> proceed(AbstractCompany company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
+    public List<Airship> proceed(AirshipOwner company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
         Comparator<Airship> comparatorAirship;
         switch (sortEnum) {
             case NAME:
@@ -40,7 +29,7 @@ public class AirshipSorting {
         }
     }
 
-    private List<Airship> sortAirships(AbstractCompany company, Comparator comparator) {
+    private List<Airship> sortAirships(AirshipOwner company, Comparator comparator) {
         Collections.sort(company.getPark(), comparator);
         return company.getPark();
     }
