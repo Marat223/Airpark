@@ -1,3 +1,4 @@
+//remove signature
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +14,12 @@ import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AbstractCompany;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
+//remove signature
 /**
  *
  * @author marat
  */
+// looks like it isn't finished implementation
 public class Search {
 
 	public List<Airship> proceed(List<AbstractCompany> companies, SearchInputParameters searchInputParameters,
@@ -32,9 +35,9 @@ public class Search {
 				}
 			}
 			break;
-		case CAPACITY:
-		case CARRYING:
-		case DISTANCE:
+		case CAPACITY: // ???
+		case CARRYING: // ???
+		case DISTANCE: // ???
 			findAirshipBySpecificValue(foundedAirship, companies, (int) value);
 			break;
 		default:

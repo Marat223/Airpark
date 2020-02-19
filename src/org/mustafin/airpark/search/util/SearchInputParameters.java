@@ -1,3 +1,4 @@
+//remove signature
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,12 +8,13 @@ package org.mustafin.airpark.search.util;
 
 import org.mustafin.airpark.airshipType.AirshipType;
 
+//remove signature
 /**
  *
  * @author Marat_Mustafin
  */
 public class SearchInputParameters {
-
+	//it would be better to have similar order for getters and setters as fields 
     private String name;
     private AirshipType type;
     private int capacity;

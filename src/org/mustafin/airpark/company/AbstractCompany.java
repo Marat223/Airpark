@@ -1,3 +1,4 @@
+//remove signature
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,23 +12,25 @@ import java.util.Objects;
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
 
+//remove signature
 /**
  *
  * @author marat
  */
+//why abstract??
 public abstract class AbstractCompany {
 
     private int id;
-    private String name;
-    private final List<Airship> park = new ArrayList<>();
-    private final List<AirshipType> avaliableAirships = new ArrayList<>();
-    private int maxAirshipsValue;
+    private String name; // not informative, for ex rename to companyName
+    private final List<Airship> park = new ArrayList<>(); // not informative
+    private final List<AirshipType> avaliableAirships = new ArrayList<>(); //where getters and setters?? Name is not informative
+    private int maxAirshipsValue; //where getters? or any checks for COUNTS? rename to maxAirshipsCount
 
     public AbstractCompany() {
     }
 
     public AbstractCompany(int id, String name, int maxAirshipsValue) {
-        this.id = id;
+        this.id = id; // it would be better to generate this parameter
         this.name = name;
         this.maxAirshipsValue = maxAirshipsValue;
     }
@@ -41,7 +44,7 @@ public abstract class AbstractCompany {
     }
 
     public boolean removeAirship(Airship airship) {
-        return park.remove(airship);
+        return park.remove(airship); //if you try to add airship and then after several times try to remove airship you will faced with problem. It is because you use link for deleting.
     }
 
     @Override

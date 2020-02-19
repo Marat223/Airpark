@@ -1,3 +1,4 @@
+//remove signature
 /*
 *ADKJH
  * To change this license header, choose License Headers in Project Properties.
@@ -9,6 +10,7 @@ package org.mustafin.airpark.airship;
 import java.util.Objects;
 import org.mustafin.airpark.airshipType.AirshipType;
 
+//remove signature
 /**
  *
  * @author marat
