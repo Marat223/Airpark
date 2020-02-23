@@ -5,50 +5,40 @@ import java.util.EnumSet;
 import java.util.List;
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airship.AirshipParameterEnum;
-import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipOwner;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 // looks like it isn't finished implementation
 public class Search {
 
-    public List<Airship> proceed(List<AirshipOwner> companies, SearchInputParameters searchInputParameters,
-            Object value) {
+    private boolean matchValue;
+
+    public List<Airship> proceed(List<AirshipOwner> airshipOwners, SearchInputParameters searchInputParameters) {
         final List<Airship> foundedAirship = new ArrayList<>();
         EnumSet<AirshipParameterEnum> definedSearchParameters = defineSearchParameters(searchInputParameters);
-        boolean match = false;
-        for (AirshipParameterEnum definedSearchParameter : definedSearchParameters) {
-            switch (definedSearchParameter) {
-                case TYPE:
-                    for (AirshipOwner company : companies) {
-                        for (Airship airship : company.getPark()) {
-                            if ((AirshipType) value == airship.getType()) {
-                                foundedAirship.add(airship);
-                            }
-                        }
-                    }
-                    break;
-                case CAPACITY: // ???
-                case CARRYING: // ???
-                case DISTANCE: // ???
-                    findAirshipBySpecificValue(foundedAirship, companies, (int) value);
-                    break;
-                default:
-                    break;
-            }
-        }
-        return foundedAirship;
-    }
-
-    private void findAirshipBySpecificValue(final List<Airship> foundedAirship, List<AirshipOwner> companies,
-            int value) {
-        for (AirshipOwner company : companies) {
-            for (Airship airship : company.getPark()) {
-                if (value == airship.getCapacity()) {
+        definedSearchParameters.forEach(definedSearchParameter -> {
+            airshipOwners.forEach(airshipOwner -> airshipOwner.getPark().forEach(airship -> {
+                switch (definedSearchParameter) {
+                    case TYPE:
+                        matchValue = airship.getType() == searchInputParameters.getType();
+                    case AIRSHIP_NAME:
+                        matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
+                    case CAPACITY:
+                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCapacity();
+                    case CARRYING:
+                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCarrying();
+                    case DISTANCE:
+                        matchValue = airship.getCapacity() == (int) searchInputParameters.getMaxDistance();
+                    default:
+                        break;
+                }
+                if (matchValue) {
                     foundedAirship.add(airship);
                 }
-            }
-        }
+                matchValue = false;
+            }));
+        });
+        return foundedAirship;
     }
 
     private EnumSet<AirshipParameterEnum> defineSearchParameters(SearchInputParameters searchInputParameters) {
