@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.mustafin.airpark.airship.Airship;
+import org.mustafin.airpark.airship.util.AirshipIdGenerator;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipOwner;
 import org.mustafin.airpark.search.Search;
@@ -13,12 +14,12 @@ public class AirPark {
 
     public static void main(String[] args) {
         // not informative example of work
-        Airship airship0 = new Airship(0, "Bell UH-1 Iroques", AirshipType.HELICOPTER, 12, 800, 280);
-        Airship airship1 = new Airship(1, "Aerobus A380", AirshipType.AIRPLANE, 350, 15000, 1600);
-        Airship airship2 = new Airship(2, "Boeing 737", AirshipType.AIRPLANE, 230, 12000, 1200);
-        Airship airship3 = new Airship(3, "SuperJet 100", AirshipType.AIRPLANE, 100, 5000, 1000);
-        Airship airship4 = new Airship(4, "MI-26", AirshipType.HELICOPTER, 40, 2000, 700);
-        Airship airship5 = new Airship(5, "IL-76", AirshipType.AIRPLANE, 120, 6000, 1200);
+        Airship airship0 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "Bell UH-1 Iroques", AirshipType.HELICOPTER, 12, 800, 280);
+        Airship airship1 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "Aerobus A380", AirshipType.AIRPLANE, 350, 15000, 1600);
+        Airship airship2 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "Boeing 737", AirshipType.AIRPLANE, 230, 12000, 1200);
+        Airship airship3 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "SuperJet 100", AirshipType.AIRPLANE, 100, 5000, 1000);
+        Airship airship4 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "MI-26", AirshipType.HELICOPTER, 40, 2000, 700);
+        Airship airship5 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "IL-76", AirshipType.AIRPLANE, 120, 6000, 1200);
 
         AirshipOwner airshipOwner1 = new AirshipOwner();
         AirshipOwner airshipOwner2 = new AirshipOwner();
@@ -33,13 +34,13 @@ public class AirPark {
         List<AirshipOwner> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
 
         SearchInputParameters searchInputParameters = new SearchInputParameters();
-        searchInputParameters.setCapacity(12);
-        searchInputParameters.setCarrying(800);
+        searchInputParameters.setCapacity(120);
+        searchInputParameters.setCarrying(6000);
 
         Search search = new Search();
-//        List<Airship> foundArships = 
-                search.proceed(airshipOwners, searchInputParameters);
-//        System.out.println("+++++++++++++++++++++++++++++++++++ " + foundArships);
+        List<Airship> foundArships
+                = search.proceed(airshipOwners, searchInputParameters);
+        System.out.println("Found airships:\n" + foundArships);
     }
 
     // ADD TESTS

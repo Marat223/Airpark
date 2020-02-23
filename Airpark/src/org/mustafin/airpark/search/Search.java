@@ -21,14 +21,19 @@ public class Search {
                 switch (definedSearchParameter) {
                     case TYPE:
                         matchValue = airship.getType() == searchInputParameters.getType();
+                        break;
                     case AIRSHIP_NAME:
                         matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
+                        break;
                     case CAPACITY:
                         matchValue = airship.getCapacity() == (int) searchInputParameters.getCapacity();
+                        break;
                     case CARRYING:
                         matchValue = airship.getCapacity() == (int) searchInputParameters.getCarrying();
+                        break;
                     case DISTANCE:
                         matchValue = airship.getCapacity() == (int) searchInputParameters.getMaxDistance();
+                        break;
                     default:
                         break;
                 }
@@ -56,7 +61,7 @@ public class Search {
             airshipParameterEnums.add(AirshipParameterEnum.DISTANCE);
         }
         if (null != searchInputParameters.getType()) {
-            airshipParameterEnums.add(AirshipParameterEnum.CAPACITY);
+            airshipParameterEnums.add(AirshipParameterEnum.TYPE);
         }
         return airshipParameterEnums;
     }
