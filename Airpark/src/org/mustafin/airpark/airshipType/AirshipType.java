@@ -2,10 +2,16 @@ package org.mustafin.airpark.airshipType;
 
 public enum AirshipType {
 
-    AIRPLANE(), HELICOPTER(), CEPELINE(), AEROSTAT();
+    AIRPLANE(1), HELICOPTER(2), CEPELINE(3);
 
-    public static AirshipType get(String typeName) {
-        return AirshipType.valueOf(typeName); //it won't work if I wrote "Airplane"
+    private int order;
+
+    AirshipType(int order) {
+        this.order = order;
+    }
+
+    public int getOrder() {
+        return order;
     }
 
 }

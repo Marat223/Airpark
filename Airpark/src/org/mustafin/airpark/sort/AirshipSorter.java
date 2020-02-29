@@ -7,25 +7,27 @@ import java.util.List;
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.company.AirshipOwner;
 
-public class AirshipSorting {
+public class AirshipSorter {
 
     public List<Airship> proceed(AirshipOwner company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
         Comparator<Airship> comparatorAirship;
         switch (sortEnum) {
-            case AIRSHIP_NAME:
-                comparatorAirship = (airship1, airship2) -> airship1.getName().compareTo(airship2.getName());
-                return sortAirships(company, comparatorAirship);
             case TYPE:
-                comparatorAirship = (airship1, airship2) -> airship1.getType().compareTo(airship2.getType()); // it won't work enough, compareTo() method don't know how to compare AirshipType
+                comparatorAirship = (airship1, airship2) -> airship1.getType().getOrder() - airship2.getType().getOrder();
                 return sortAirships(company, comparatorAirship);
             case CAPACITY:
-                comparatorAirship = (airship1, airship2) -> airship1.getType().compareTo(airship2.getType()); //use getCapacity() method
+                comparatorAirship = (airship1, airship2) -> airship1.getCapacity() - airship2.getCapacity();
                 return sortAirships(company, comparatorAirship);
             case DISTANCE:
                 comparatorAirship = (airship1, airship2) -> airship1.getMaxDistance() - airship2.getMaxDistance();
                 return sortAirships(company, comparatorAirship);
+            case CARRYING:
+                comparatorAirship = (airship1, airship2) -> airship1.getCarrying() - airship2.getCarrying();
+                return sortAirships(company, comparatorAirship);
+            case AIRSHIP_NAME:
             default:
-                throw new UnsupportedOperationException(); // use default sorting, for ex by name
+                comparatorAirship = (airship1, airship2) -> airship1.getName().compareTo(airship2.getName());
+                return sortAirships(company, comparatorAirship);
         }
     }
 
