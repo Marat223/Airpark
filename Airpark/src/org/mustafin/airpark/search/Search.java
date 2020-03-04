@@ -15,6 +15,7 @@ public class Search {
 
     public List<Airship> proceed(List<AirshipOwner> airshipOwners, SearchInputParameters searchInputParameters) {
         final List<Airship> foundedAirship = new ArrayList<>();
+        //it is so hard to understand. And I don't understand the sense of this method
         EnumSet<AirshipParameterEnum> definedSearchParameters = defineSearchParameters(searchInputParameters);
         definedSearchParameters.forEach(definedSearchParameter -> {
             airshipOwners.forEach(airshipOwner -> airshipOwner.getPark().forEach(airship -> {
@@ -26,13 +27,13 @@ public class Search {
                         matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
                         break;
                     case CAPACITY:
-                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCapacity();
+                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCapacity(); //it won't work. use < or > instead
                         break;
                     case CARRYING:
-                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCarrying();
+                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCarrying(); //it won't work. use < or > instead
                         break;
                     case DISTANCE:
-                        matchValue = airship.getCapacity() == (int) searchInputParameters.getMaxDistance();
+                        matchValue = airship.getCapacity() == (int) searchInputParameters.getMaxDistance(); //it won't work. use < or > instead
                         break;
                     default:
                         break;
