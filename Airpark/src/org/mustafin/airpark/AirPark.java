@@ -15,7 +15,7 @@ import org.mustafin.airpark.sort.AirshipSorter;
 public class AirPark {
 
     public static void main(String[] args) {
-        // not informative example of work
+        
         Airship airship0 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "Bell UH-1 Iroques", AirshipType.HELICOPTER, 12, 1200, 280);
         Airship airship1 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "Aerobus A380", AirshipType.AIRPLANE, 350, 150000, 1600);
         Airship airship2 = new Airship(AirshipIdGenerator.INSTANCE.generateId(), "Boeing 737", AirshipType.AIRPLANE, 230, 120000, 1200);
@@ -44,17 +44,17 @@ public class AirPark {
         List<AirshipOwner> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
 
         SearchInputParameters searchInputParameters = new SearchInputParameters();
-        searchInputParameters.setCapacity(120);
-        searchInputParameters.setCarrying(6000);
+        searchInputParameters.setCapacity(12);
+        searchInputParameters.setCarrying(1200);
 
         Search search = new Search();
         List<Airship> foundArships
                 = search.proceed(airshipOwners, searchInputParameters);
         System.out.println("Found airships:\n" + foundArships);
 
-        AirshipSorter airshipSorter = new AirshipSorter();
-        List<Airship> sortedAirships = airshipSorter.proceed(airshipOwner2, AirshipParameterEnum.DISTANCE);
-        System.out.println("Sorted airships:\n" + sortedAirships);
+//        AirshipSorter airshipSorter = new AirshipSorter();
+//        List<Airship> sortedAirships = airshipSorter.proceed(airshipOwner2, AirshipParameterEnum.DISTANCE);
+//        System.out.println("Sorted airships:\n" + sortedAirships);
 
     }
 

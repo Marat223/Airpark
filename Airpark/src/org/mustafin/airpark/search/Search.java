@@ -8,7 +8,6 @@ import org.mustafin.airpark.airship.AirshipParameterEnum;
 import org.mustafin.airpark.company.AirshipOwner;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
-// looks like it isn't finished implementation
 public class Search {
 
     private boolean matchValue;
