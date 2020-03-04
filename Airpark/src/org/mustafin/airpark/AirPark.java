@@ -47,6 +47,7 @@ public class AirPark {
         searchInputParameters.setCapacity(120);
         searchInputParameters.setCarrying(6000);
 
+        //try to test it
         Search search = new Search();
         List<Airship> foundArships
                 = search.proceed(airshipOwners, searchInputParameters);

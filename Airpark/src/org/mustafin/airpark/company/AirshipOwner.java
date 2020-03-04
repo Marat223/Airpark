@@ -7,14 +7,14 @@ import java.util.Objects;
 
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
-
+//Owner is not a Company, rename it. Maybe Airport, Airpark
 public class AirshipOwner {
 
     private int id;
     private String companyName;
     private final List<Airship> parkAirplains = new ArrayList<>();
-    private final EnumSet<AirshipType> avaliableAirshipsTypes = EnumSet.noneOf(AirshipType.class); //where getters and setters??
-    private int maxAirshipsCount; //where getters? or any checks for COUNTS?
+    private final EnumSet<AirshipType> avaliableAirshipsTypes = EnumSet.noneOf(AirshipType.class); //where getters and setters?? till not implemented
+    private int maxAirshipsCount; //where getters? or any checks for COUNTS? the same
 
     public AirshipOwner() {
     }

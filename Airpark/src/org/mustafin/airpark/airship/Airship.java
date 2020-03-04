@@ -1,4 +1,5 @@
 //remove signature
+//SIGNATURE
 /*
 *ADKJH
  * To change this license header, choose License Headers in Project Properties.
@@ -10,6 +11,7 @@ package org.mustafin.airpark.airship;
 import java.util.Objects;
 import org.mustafin.airpark.airshipType.AirshipType;
 
+//remove signature
 public class Airship {
 
     private int id;
@@ -20,6 +22,7 @@ public class Airship {
     private int maxDistance;
 
     public Airship(int id, String name, AirshipType type, int capacity, int carrying, int maxDistance) {
+    	//use ID generator here, not send it in arguments
         this.id = id;
         this.name = name;
         this.type = type;
@@ -31,6 +34,8 @@ public class Airship {
     public Airship() {
     }
 
+    //params in class and getter/setter should me in a similar order 
+    
     public String getName() {
         return name;
     }
