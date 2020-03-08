@@ -5,11 +5,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import org.mustafin.airpark.airship.Airship;
-import org.mustafin.airpark.company.AirshipOwner;
+import org.mustafin.airpark.company.AirshipCompany;
 
 public class AirshipSorter {
 
-    public List<Airship> proceed(AirshipOwner company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
+    public List<Airship> proceed(AirshipCompany company, AirshipParameterEnum sortEnum) throws UnsupportedOperationException {
         Comparator<Airship> comparatorAirship;
         switch (sortEnum) {
             case TYPE:
@@ -31,8 +31,8 @@ public class AirshipSorter {
         }
     }
 
-    private List<Airship> sortAirships(AirshipOwner company, Comparator comparator) {
-        Collections.sort(company.getPark(), comparator);
-        return company.getPark();
+    private List<Airship> sortAirships(AirshipCompany company, Comparator comparator) {
+        Collections.sort(company.getParkAirplains(), comparator);
+        return company.getParkAirplains();
     }
 }

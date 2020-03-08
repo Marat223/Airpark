@@ -1,40 +1,85 @@
 package org.mustafin.airpark.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
-//Owner is not a Company, rename it. Maybe Airport, Airpark
-public class AirshipOwner {
+
+public class AirshipCompany {
 
     private int id;
     private String companyName;
     private final List<Airship> parkAirplains = new ArrayList<>();
-    private final EnumSet<AirshipType> avaliableAirshipsTypes = EnumSet.noneOf(AirshipType.class); //where getters and setters?? till not implemented
-    private int maxAirshipsCount; //where getters? or any checks for COUNTS? the same
+    private final EnumSet<AirshipType> avaliableAirshipsTypes = EnumSet.noneOf(AirshipType.class);
+    private int maxAirshipsCount;
 
-    public AirshipOwner() {
-    }
+    private static int lsdtId;
 
-    public AirshipOwner(int id, String name, int maxAirshipsValue) {
-        this.id = id; // it would be better to generate this parameter
+    public AirshipCompany(String name, int maxAirshipsValue) {
+        this.id = lsdtId++;
         this.companyName = name;
         this.maxAirshipsCount = maxAirshipsValue;
     }
 
-    public List<Airship> getPark() {
+    public AirshipCompany() {
+        this.id = lsdtId++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public List<Airship> getParkAirplains() {
         return parkAirplains;
     }
 
-    public void addAirShip(Airship airship) {
-        parkAirplains.add(airship);
+    public void setParkAirplains(List<Airship> parkAirplains) {
+        this.parkAirplains.clear();
+        this.parkAirplains.addAll(parkAirplains);
+    }
+
+    public boolean addAirShip(Airship airship) {
+        if (parkAirplains.size() < maxAirshipsCount) {
+            parkAirplains.add(airship);
+            return true;
+        }
+        return false;
+    }
+
+    public EnumSet<AirshipType> getAvaliableAirshipsTypes() {
+        return avaliableAirshipsTypes;
+    }
+
+    public void setAvaliableAirshipsTypes(AirshipType airshipType) {
+        avaliableAirshipsTypes.add(airshipType);
     }
 
     public boolean removeAirship(Airship airship) {
         return parkAirplains.remove(airship); //if you try to add airship and then after several times try to remove airship you will faced with problem. It is because you use link for deleting.
+    }
+
+    public void removeAvaliableAirshipsTypes(AirshipType airshipType) {
+        avaliableAirshipsTypes.remove(airshipType);
+    }
+
+    public int getMaxAirshipsCount() {
+        return maxAirshipsCount;
+    }
+
+    public void setMaxAirshipsCount(int maxAirshipsCount) {
+        this.maxAirshipsCount = maxAirshipsCount;
     }
 
     @Override
@@ -59,7 +104,7 @@ public class AirshipOwner {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AirshipOwner other = (AirshipOwner) obj;
+        final AirshipCompany other = (AirshipCompany) obj;
         if (this.id != other.id) {
             return false;
         }
@@ -82,6 +127,5 @@ public class AirshipOwner {
     public String toString() {
         return "AbstarctCompany{" + "id=" + id + ", name=" + companyName + ", park=" + parkAirplains + ", avaliableAirShips=" + avaliableAirshipsTypes + ", maxAirshipsValue=" + maxAirshipsCount + '}';
     }
-
 
 }

@@ -5,19 +5,19 @@ import java.util.EnumSet;
 import java.util.List;
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airship.AirshipParameterEnum;
-import org.mustafin.airpark.company.AirshipOwner;
+import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 public class Search {
 
     private boolean matchValue;
 
-    public List<Airship> proceed(List<AirshipOwner> airshipOwners, SearchInputParameters searchInputParameters) {
+    public List<Airship> proceed(List<AirshipCompany> airshipOwners, SearchInputParameters searchInputParameters) {
         final List<Airship> foundedAirship = new ArrayList<>();
         //it is so hard to understand. And I don't understand the sense of this method
         EnumSet<AirshipParameterEnum> definedSearchParameters = defineSearchParameters(searchInputParameters);
         definedSearchParameters.forEach(definedSearchParameter -> {
-            airshipOwners.forEach(airshipOwner -> airshipOwner.getPark().forEach(airship -> {
+            airshipOwners.forEach(airshipOwner -> airshipOwner.getParkAirplains().forEach(airship -> {
                 switch (definedSearchParameter) {
                     case TYPE:
                         matchValue = airship.getType() == searchInputParameters.getType();
@@ -26,13 +26,13 @@ public class Search {
                         matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
                         break;
                     case CAPACITY:
-                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCapacity(); //it won't work. use < or > instead
+                        matchValue = airship.getCapacity() >= (int) searchInputParameters.getCapacity();
                         break;
                     case CARRYING:
-                        matchValue = airship.getCapacity() == (int) searchInputParameters.getCarrying(); //it won't work. use < or > instead
+                        matchValue = airship.getCarrying() >= (int) searchInputParameters.getCarrying();
                         break;
                     case DISTANCE:
-                        matchValue = airship.getCapacity() == (int) searchInputParameters.getMaxDistance(); //it won't work. use < or > instead
+                        matchValue = airship.getMaxDistance() >= (int) searchInputParameters.getMaxDistance();
                         break;
                     default:
                         break;

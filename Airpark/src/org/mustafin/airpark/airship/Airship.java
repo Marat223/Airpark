@@ -1,29 +1,21 @@
-//remove signature
-//SIGNATURE
-/*
-*ADKJH
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.mustafin.airpark.airship;
 
 import java.util.Objects;
 import org.mustafin.airpark.airshipType.AirshipType;
 
-//remove signature
 public class Airship {
 
-    private int id;
+    private final int id;
     private String name;
     private AirshipType type;
     private int capacity;
     private int carrying;
     private int maxDistance;
 
-    public Airship(int id, String name, AirshipType type, int capacity, int carrying, int maxDistance) {
-    	//use ID generator here, not send it in arguments
-        this.id = id;
+    private static int lastId;
+
+    public Airship(String name, AirshipType type, int capacity, int carrying, int maxDistance) {
+        this.id = lastId++;
         this.name = name;
         this.type = type;
         this.capacity = capacity;
@@ -32,16 +24,27 @@ public class Airship {
     }
 
     public Airship() {
+        this.id = lastId++;
     }
 
-    //params in class and getter/setter should me in a similar order 
-    
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public AirshipType getType() {
+        return type;
+    }
+
+    public void setType(AirshipType type) {
+        this.type = type;
     }
 
     public int getCapacity() {
@@ -66,18 +69,6 @@ public class Airship {
 
     public void setMaxDistance(int maxDistance) {
         this.maxDistance = maxDistance;
-    }
-
-    public AirshipType getType() {
-        return type;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
@@ -129,5 +120,5 @@ public class Airship {
     public String toString() {
         return "AbstractAirship{" + "id=" + id + ", name=" + name + ", type=" + type + ", capacity=" + capacity + ", carrying=" + carrying + ", maxDistance=" + maxDistance + '}';
     }
-    
+
 }
