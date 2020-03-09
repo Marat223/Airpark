@@ -3,7 +3,7 @@ package org.mustafin.airpark.search.util;
 import org.mustafin.airpark.airshipType.AirshipType;
 
 public class SearchInputParameters {
-	private String name;
+	private String airshipName;
 	private AirshipType type;
 	private int capacity;
 	private int carrying;
@@ -13,19 +13,19 @@ public class SearchInputParameters {
 	}
 
 	public SearchInputParameters(String name, AirshipType type, int capacity, int carrying, int maxDistance) {
-		this.name = name;
+		this.airshipName = name;
 		this.type = type;
 		this.capacity = capacity;
 		this.carrying = carrying;
 		this.maxDistance = maxDistance;
 	}
 
-	public String getName() {
-		return name;
+	public String getAirshipName() {
+		return airshipName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.airshipName = name;
 	}
 
 	public AirshipType getType() {
