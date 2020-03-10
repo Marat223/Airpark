@@ -16,32 +16,34 @@ public class Search {
         final List<Airship> foundedAirship = new ArrayList<>();
         //it is so hard to understand. And I don't understand the sense of this method
         EnumSet<AirshipParameterEnum> definedSearchParameters = defineSearchParameters(searchInputParameters);
-        definedSearchParameters.forEach(definedSearchParameter -> {
-            airshipOwners.forEach(airshipOwner -> airshipOwner.getParkAirplains().forEach(airship -> {
-                switch (definedSearchParameter) {
-                    case TYPE:
-                        matchValue = airship.getType() == searchInputParameters.getType();
-                        break;
-                    case AIRSHIP_NAME:
-                        matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
-                        break;
-                    case CAPACITY:
-                        matchValue = airship.getCapacity() >= (int) searchInputParameters.getCapacity();
-                        break;
-                    case CARRYING:
-                        matchValue = airship.getCarrying() >= (int) searchInputParameters.getCarrying();
-                        break;
-                    case DISTANCE:
-                        matchValue = airship.getMaxDistance() >= (int) searchInputParameters.getMaxDistance();
-                        break;
-                    default:
-                        break;
-                }
+        airshipOwners.forEach(airshipOwner -> {
+            airshipOwner.getParkAirplains().forEach(airship -> {
+                definedSearchParameters.forEach(definedSearchParameter -> {
+                    switch (definedSearchParameter) {
+                        case TYPE:
+                            matchValue = airship.getType() == searchInputParameters.getType();
+                            break;
+                        case AIRSHIP_NAME:
+                            matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
+                            break;
+                        case CAPACITY:
+                            matchValue = airship.getCapacity() >= (int) searchInputParameters.getCapacity();
+                            break;
+                        case CARRYING:
+                            matchValue = airship.getCarrying() >= (int) searchInputParameters.getCarrying();
+                            break;
+                        case DISTANCE:
+                            matchValue = airship.getMaxDistance() >= (int) searchInputParameters.getMaxDistance();
+                            break;
+                        default:
+                            break;
+                    }
+                });
                 if (matchValue) {
                     foundedAirship.add(airship);
                 }
                 matchValue = false;
-            }));
+            });
         });
         return foundedAirship;
     }

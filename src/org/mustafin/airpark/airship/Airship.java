@@ -118,7 +118,7 @@ public class Airship {
 
     @Override
     public String toString() {
-        return "AbstractAirship{" + "id=" + id + ", name=" + name + ", type=" + type + ", capacity=" + capacity + ", carrying=" + carrying + ", maxDistance=" + maxDistance + '}';
+        return "Airship{" + "id=" + id + ", name=" + name + ", type=" + type + ", capacity=" + capacity + ", carrying=" + carrying + ", maxDistance=" + maxDistance + '}';
     }
 
 }

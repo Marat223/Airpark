@@ -1,7 +1,6 @@
 package org.mustafin.airpark.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +124,7 @@ public class AirshipCompany {
 
     @Override
     public String toString() {
-        return "AbstarctCompany{" + "id=" + id + ", name=" + companyName + ", park=" + parkAirplains + ", avaliableAirShips=" + avaliableAirshipsTypes + ", maxAirshipsValue=" + maxAirshipsCount + '}';
+        return "AirshipCompany{" + "id=" + id + ", name=" + companyName + ", park=" + parkAirplains + ", avaliableAirShipTypes=" + avaliableAirshipsTypes + ", maxAirshipsValue=" + maxAirshipsCount + '}';
     }
 
 }

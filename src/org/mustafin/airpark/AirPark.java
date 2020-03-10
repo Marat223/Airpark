@@ -12,7 +12,7 @@ import org.mustafin.airpark.search.util.SearchInputParameters;
 public class AirPark {
 
     public static void main(String[] args) {
-        
+
         Airship airship0 = new Airship("Bell UH-1 Iroques", AirshipType.HELICOPTER, 12, 1200, 280);
         Airship airship1 = new Airship("Aerobus A380", AirshipType.AIRPLANE, 350, 150000, 1600);
         Airship airship2 = new Airship("Boeing 737", AirshipType.AIRPLANE, 230, 120000, 1200);
@@ -24,8 +24,13 @@ public class AirPark {
         Airship airship8 = new Airship("KA-52", AirshipType.HELICOPTER, 2, 750, 300);
         Airship airship9 = new Airship("Hindenburg", AirshipType.CEPELINE, 50, 100000, 1200);
 
-        AirshipCompany airshipOwner1 = new AirshipCompany();
-        AirshipCompany airshipOwner2 = new AirshipCompany();
+        AirshipCompany airshipOwner1 = new AirshipCompany("Belavia", 10);
+        airshipOwner1.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipOwner1.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+
+        AirshipCompany airshipOwner2 = new AirshipCompany("Lufthansa", 36);
+        airshipOwner2.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipOwner2.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
 
         airshipOwner1.addAirShip(airship0);
         airshipOwner1.addAirShip(airship1);
@@ -53,7 +58,6 @@ public class AirPark {
 //        AirshipSorter airshipSorter = new AirshipSorter();
 //        List<Airship> sortedAirships = airshipSorter.proceed(airshipOwner2, AirshipParameterEnum.DISTANCE);
 //        System.out.println("Sorted airships:\n" + sortedAirships);
-
     }
 
     // ADD TESTS
