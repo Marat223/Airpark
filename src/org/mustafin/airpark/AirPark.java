@@ -4,10 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.mustafin.airpark.airship.Airship;
+import org.mustafin.airpark.airship.AirshipParameterEnum;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipCompany;
-import org.mustafin.airpark.search.Search;
 import org.mustafin.airpark.search.util.SearchInputParameters;
+import org.mustafin.airpark.sort.AirshipSorter;
 
 public class AirPark {
 
@@ -43,21 +44,23 @@ public class AirPark {
         airshipOwner2.addAirShip(airship8);
         airshipOwner2.addAirShip(airship9);
 
-        List<AirshipCompany> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
+//        List<AirshipCompany> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
+//
+//        SearchInputParameters searchInputParameters = new SearchInputParameters();
+//        searchInputParameters.setCapacity(12);
+//        searchInputParameters.setCarrying(1200);
 
-        SearchInputParameters searchInputParameters = new SearchInputParameters();
-        searchInputParameters.setCapacity(12);
-        searchInputParameters.setCarrying(1200);
+//        Search search = new Search();
+//        List<Airship> foundArships
+//                = search.proceed(airshipOwners, searchInputParameters);
+//        System.out.println("Found airships:\n" + foundArships);
 
-        //try to test it
-        Search search = new Search();
-        List<Airship> foundArships
-                = search.proceed(airshipOwners, searchInputParameters);
-        System.out.println("Found airships:\n" + foundArships);
-
-//        AirshipSorter airshipSorter = new AirshipSorter();
-//        List<Airship> sortedAirships = airshipSorter.proceed(airshipOwner2, AirshipParameterEnum.DISTANCE);
-//        System.out.println("Sorted airships:\n" + sortedAirships);
+        AirshipSorter airshipSorter = new AirshipSorter();
+        List<Airship> sortedAirships = airshipSorter.proceed(airshipOwner2, AirshipParameterEnum.DISTANCE);
+        System.out.println("Sorted airships:\n" + sortedAirships);
+        
+        sortedAirships = airshipSorter.proceed(airshipOwner1, AirshipParameterEnum.DISTANCE);
+        System.out.println("Sorted airships:\n" + sortedAirships);
     }
 
     // ADD TESTS
