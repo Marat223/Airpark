@@ -7,6 +7,8 @@ import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airship.AirshipParameterEnum;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipCompany;
+import org.mustafin.airpark.exception.NotDefinedSortingType;
+import org.mustafin.airpark.search.Search;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 import org.mustafin.airpark.sort.AirshipSorter;
 
@@ -44,23 +46,38 @@ public class AirPark {
         airshipOwner2.addAirShip(airship8);
         airshipOwner2.addAirShip(airship9);
 
-//        List<AirshipCompany> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
-//
-//        SearchInputParameters searchInputParameters = new SearchInputParameters();
-//        searchInputParameters.setCapacity(12);
-//        searchInputParameters.setCarrying(1200);
+        List<AirshipCompany> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
 
-//        Search search = new Search();
-//        List<Airship> foundArships
-//                = search.proceed(airshipOwners, searchInputParameters);
-//        System.out.println("Found airships:\n" + foundArships);
+        SearchInputParameters searchInputParameters = new SearchInputParameters();
+        Search search = new Search();
+
+        searchInputParameters.setCapacity(12);
+        searchInputParameters.setCarrying(1200);
+        List<Airship> foundArships
+                = search.proceed(airshipOwners, searchInputParameters);
+        System.out.println("Found airships with capacity >=12 and carryng >=1200:\n" + foundArships);
+
+        searchInputParameters.setCapacity(0);
+        searchInputParameters.setCarrying(0);
+        searchInputParameters.setType(AirshipType.CEPELINE);
+        foundArships
+                = search.proceed(airshipOwners, searchInputParameters);
+        System.out.println("Found airships with type \"cepeline\":\n" + foundArships);
 
         AirshipSorter airshipSorter = new AirshipSorter();
+
         List<Airship> sortedAirships = airshipSorter.proceed(airshipOwner2, AirshipParameterEnum.DISTANCE);
-        System.out.println("Sorted airships:\n" + sortedAirships);
-        
-        sortedAirships = airshipSorter.proceed(airshipOwner1, AirshipParameterEnum.DISTANCE);
-        System.out.println("Sorted airships:\n" + sortedAirships);
+        System.out.println("Sorted airships by max. distance:\n" + sortedAirships);
+
+        sortedAirships = airshipSorter.proceed(airshipOwner1, AirshipParameterEnum.CARRYING);
+        System.out.println("Sorted airships by carryng:\n" + sortedAirships);
+
+        try {
+            sortedAirships = airshipSorter.proceed(airshipOwner2, null);
+            System.out.println("Sorted airships without define sorting parameter:\n" + sortedAirships);
+        } catch (NotDefinedSortingType notDefinedSortingType) {
+            notDefinedSortingType.printStackTrace();
+        }
     }
 
 }
