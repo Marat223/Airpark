@@ -63,5 +63,4 @@ public class AirPark {
         System.out.println("Sorted airships:\n" + sortedAirships);
     }
 
-    // ADD TESTS
 }
