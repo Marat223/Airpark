@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
 
@@ -65,8 +66,8 @@ public class AirshipCompany {
         allowedAirshipTypes.add(airshipType);
     }
 
-    public boolean removeAirship(Airship airship) {
-        return airshipsPark.remove(airship); //if you try to add airship and then after several times try to remove airship you will faced with problem. It is because you use link for deleting.
+    public boolean removeAirship(int id) {
+        return airshipsPark.removeIf(airship -> airship.getId() == id);
     }
 
     public void removeAvaliableAirshipsTypes(AirshipType airshipType) {
@@ -79,6 +80,10 @@ public class AirshipCompany {
 
     public void setMaxAirshipsCount(int maxAirshipsCount) {
         this.maxAirshipsCount = maxAirshipsCount;
+    }
+
+    public Optional<Airship> getAirshipById(int id) {
+        return airshipsPark.stream().filter(airship -> airship.getId() == id).findFirst();
     }
 
     @Override
