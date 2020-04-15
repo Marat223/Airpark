@@ -10,7 +10,7 @@ import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Ignore;
 
 public class SearchTest {
@@ -31,8 +31,8 @@ public class SearchTest {
 
     private static Search search;
 
-    @BeforeClass
-    public static void init() {
+    @Before
+    public void init() {
         airship1 = new Airship("SuperJet 100", AirshipType.AIRPLANE, 100, 30000, 1000);
         airship2 = new Airship("MIG-29", AirshipType.AIRPLANE, 2, 1500, 2500);
         airship3 = new Airship("Messerschmitt", AirshipType.AIRPLANE, 1, 500, 200);
@@ -114,7 +114,7 @@ public class SearchTest {
     }
 
     @Test
-//    @Ignore
+    @Ignore
     public void test_proceedByDistance() {
 
         searchInputParameters.setMaxDistance(600);
