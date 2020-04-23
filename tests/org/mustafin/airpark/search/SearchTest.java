@@ -114,7 +114,6 @@ public class SearchTest {
     }
 
     @Test
-    @Ignore
     public void test_proceedByDistance() {
 
         searchInputParameters.setMaxDistance(600);
@@ -124,7 +123,9 @@ public class SearchTest {
 
         List<Airship> expectedFoundAirship = Arrays.asList(airship6, airship2, airship1);
 
-        assertEquals(expectedFoundAirship, foundArships);
+        assertTrue(expectedFoundAirship.size() == foundArships.size() &&
+        		expectedFoundAirship.containsAll(foundArships) &&
+        		foundArships.containsAll(expectedFoundAirship));
 
     }
 
