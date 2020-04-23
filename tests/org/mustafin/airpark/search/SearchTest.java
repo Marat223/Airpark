@@ -125,7 +125,7 @@ public class SearchTest {
 
         assertTrue(expectedFoundAirship.size() == foundArships.size() &&
         		expectedFoundAirship.containsAll(foundArships) &&
-        		foundArships.containsAll(expectedFoundAirship)) ;
+        		foundArships.containsAll(expectedFoundAirship));
 
     }
 
