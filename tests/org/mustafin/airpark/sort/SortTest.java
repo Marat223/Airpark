@@ -14,13 +14,13 @@ import org.mustafin.airpark.exception.NotDefinedSortingType;
 public class SortTest {
 
 	//TODO remove static for each fields
-    private static Airship airship2;
-    private static Airship airship3;
-    private static Airship airship1;
+    private Airship airship2;
+    private Airship airship3;
+    private Airship airship1;
 
-    private static AirshipCompany airshipCompany;
+    private AirshipCompany airshipCompany;
 
-    private static AirshipSorter airshipSorter;
+    private AirshipSorter airshipSorter;
 
     @Before
     public void init() {
@@ -87,9 +87,16 @@ public class SortTest {
 
     @Test(expected = NotDefinedSortingType.class)
     public void test_sortByNull() {//TODO remove empty lines
-
         airshipSorter.proceed(airshipCompany, null);
-
     }
     //TODO add default sort test
+    
+    @Test
+    public void test_sortByDefault() {
+        List<Airship> expectedFoundAirship = Arrays.asList(airship3, airship2, airship1);
+
+        List<Airship> sortedAirships = airshipSorter.proceed(airshipCompany, AirshipParameterEnum.STUB_PARAMETER);
+
+        assertEquals(expectedFoundAirship, sortedAirships);
+    }
 }

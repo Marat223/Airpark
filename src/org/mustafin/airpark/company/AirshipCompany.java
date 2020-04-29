@@ -51,7 +51,7 @@ public class AirshipCompany {
 
     public boolean addAirShip(Airship airship) {
         if (airshipsPark.size() < maxAirshipsCount
-                && allowedAirshipTypes.stream().anyMatch(type -> type == airship.getType())) { // TODO allowedAirshipTypes.contains(airship.getType())
+                && allowedAirshipTypes.contains(airship.getType())) { // TODO allowedAirshipTypes.contains(airship.getType())
             airshipsPark.add(airship);
             return true;
         }

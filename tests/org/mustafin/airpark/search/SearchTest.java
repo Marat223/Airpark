@@ -1,6 +1,7 @@
 package org.mustafin.airpark.search;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.junit.After;
 import org.junit.Test;
@@ -11,26 +12,25 @@ import org.mustafin.airpark.search.util.SearchInputParameters;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.Ignore;
 
 public class SearchTest {
 
 	//TODO remove static for each fields
-    private static Airship airship1;
-    private static Airship airship2;
-    private static Airship airship3;
-    private static Airship airship4;
-    private static Airship airship5;
-    private static Airship airship6;
+    private Airship airship1;
+    private Airship airship2;
+    private Airship airship3;
+    private Airship airship4;
+    private Airship airship5;
+    private Airship airship6;
 
-    private static AirshipCompany airshipCompany1;
-    private static AirshipCompany airshipCompany2;
+    private AirshipCompany airshipCompany1;
+    private AirshipCompany airshipCompany2;
 
-    private static List<AirshipCompany> airshipCompanies;
+    private List<AirshipCompany> airshipCompanies;
 
-    private static SearchInputParameters searchInputParameters;
+    private SearchInputParameters searchInputParameters;
 
-    private static Search search;
+    private Search search;
 
     @Before
     public void init() {
@@ -61,12 +61,10 @@ public class SearchTest {
 
         airshipCompanies = Arrays.asList(airshipCompany1, airshipCompany2);
 
-        searchInputParameters = new SearchInputParameters();
-
         search = new Search();
     }
 
-    @After
+    @Before
     public void cleanSearchInputParameters() {
     	//TODO you have the same line at the end of @Before
         searchInputParameters = new SearchInputParameters();
@@ -74,22 +72,21 @@ public class SearchTest {
 
     @Test
     public void test_proceedByCapacityAndCarrying() { //TODO remove empty line after '{' and before '}' foe each tests
-
         searchInputParameters.setCapacity(100);
         searchInputParameters.setCarrying(30000);
 
+        List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship6); 
+        
         List<Airship> foundArships
                 = search.proceed(airshipCompanies, searchInputParameters);
 
-        List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship6); //TODO arrange should be before act, below the same
+        //TODO arrange should be before act, below the same
 
         assertEquals(expectedFoundAirship, foundArships);
-
     }
 
     @Test
     public void test_proceedByCapacity() {
-
         searchInputParameters.setCapacity(50);
 
         List<Airship> foundArships
@@ -98,12 +95,10 @@ public class SearchTest {
         List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship6);
 
         assertEquals(expectedFoundAirship, foundArships);
-
     }
 
     @Test
     public void test_proceedByCarrying() {
-
         searchInputParameters.setCarrying(600);
 
         List<Airship> foundArships
@@ -112,12 +107,10 @@ public class SearchTest {
         List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship2, airship4, airship5, airship6);
 
         assertEquals(expectedFoundAirship, foundArships);
-
     }
 
     @Test
     public void test_proceedByDistance() {
-
         searchInputParameters.setMaxDistance(600);
 
         List<Airship> foundArships
@@ -128,12 +121,10 @@ public class SearchTest {
         assertTrue(expectedFoundAirship.size() == foundArships.size() &&
         		expectedFoundAirship.containsAll(foundArships) &&
         		foundArships.containsAll(expectedFoundAirship));
-
     }
 
     @Test
     public void test_proceedByType() {
-
         searchInputParameters.setType(AirshipType.CEPELINE);
 
         List<Airship> foundArships
@@ -142,12 +133,10 @@ public class SearchTest {
         List<Airship> expectedFoundAirship = Arrays.asList(airship6);
 
         assertEquals(expectedFoundAirship, foundArships);
-
     }
     
     @Test
     public void test_proceedByName() {
-
         searchInputParameters.setName("IL-2");
 
         List<Airship> foundArships
@@ -156,6 +145,17 @@ public class SearchTest {
         List<Airship> expectedFoundAirship = Arrays.asList(airship4);
 
         assertEquals(expectedFoundAirship, foundArships);
+    }
+    
+    @Test
+    public void test_proceedByNameWithNullArgument() {
+        searchInputParameters.setName(null);
 
+        List<Airship> foundArships
+                = search.proceed(airshipCompanies, searchInputParameters);
+
+        List<Airship> expectedFoundAirship = Collections.EMPTY_LIST;
+
+        assertEquals(expectedFoundAirship, foundArships);
     }
 }

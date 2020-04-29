@@ -18,7 +18,8 @@ public class Search {
                     matchValue = airship.getType() == searchInputParameters.getType();
                 }
                 //TODO no full coverage, add test for it
-                if (null != searchInputParameters.getAirshipName() && !"".equals(searchInputParameters.getAirshipName())) {
+                if (null != searchInputParameters.getAirshipName() &&
+                	!"".equals(searchInputParameters.getAirshipName())) {
                     matchValue = searchInputParameters.getAirshipName().equals(airship.getName());
                 }
                 if (0 != searchInputParameters.getCapacity()) {
