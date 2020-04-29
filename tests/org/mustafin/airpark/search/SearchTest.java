@@ -15,6 +15,7 @@ import org.junit.Ignore;
 
 public class SearchTest {
 
+	//TODO remove static for each fields
     private static Airship airship1;
     private static Airship airship2;
     private static Airship airship3;
@@ -67,11 +68,12 @@ public class SearchTest {
 
     @After
     public void cleanSearchInputParameters() {
+    	//TODO you have the same line at the end of @Before
         searchInputParameters = new SearchInputParameters();
     }
 
     @Test
-    public void test_proceedByCapacityAndCarrying() {
+    public void test_proceedByCapacityAndCarrying() { //TODO remove empty line after '{' and before '}' foe each tests
 
         searchInputParameters.setCapacity(100);
         searchInputParameters.setCarrying(30000);
@@ -79,7 +81,7 @@ public class SearchTest {
         List<Airship> foundArships
                 = search.proceed(airshipCompanies, searchInputParameters);
 
-        List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship6);
+        List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship6); //TODO arrange should be before act, below the same
 
         assertEquals(expectedFoundAirship, foundArships);
 
@@ -122,7 +124,7 @@ public class SearchTest {
                 = search.proceed(airshipCompanies, searchInputParameters);
 
         List<Airship> expectedFoundAirship = Arrays.asList(airship6, airship2, airship1);
-
+        //TODO mixed asserts, rewrite it to three asserts
         assertTrue(expectedFoundAirship.size() == foundArships.size() &&
         		expectedFoundAirship.containsAll(foundArships) &&
         		foundArships.containsAll(expectedFoundAirship));

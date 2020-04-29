@@ -13,6 +13,7 @@ import org.mustafin.airpark.exception.NotDefinedSortingType;
 
 public class SortTest {
 
+	//TODO remove static for each fields
     private static Airship airship2;
     private static Airship airship3;
     private static Airship airship1;
@@ -85,9 +86,10 @@ public class SortTest {
     }
 
     @Test(expected = NotDefinedSortingType.class)
-    public void test_sortByNull() {
+    public void test_sortByNull() {//TODO remove empty lines
 
         airshipSorter.proceed(airshipCompany, null);
 
     }
+    //TODO add default sort test
 }
