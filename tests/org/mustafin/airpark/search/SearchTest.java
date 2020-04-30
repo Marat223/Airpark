@@ -1,17 +1,17 @@
 package org.mustafin.airpark.search;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.junit.After;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.search.util.SearchInputParameters;
-
-import static org.junit.Assert.*;
-import org.junit.Before;
 
 public class SearchTest {
 
@@ -116,11 +116,9 @@ public class SearchTest {
         List<Airship> foundArships
                 = search.proceed(airshipCompanies, searchInputParameters);
 
-        List<Airship> expectedFoundAirship = Arrays.asList(airship6, airship2, airship1);
+        List<Airship> expectedFoundAirship = Arrays.asList(airship1, airship2, airship6);
         //TODO mixed asserts, rewrite it to three asserts
-        assertTrue(expectedFoundAirship.size() == foundArships.size() &&
-        		expectedFoundAirship.containsAll(foundArships) &&
-        		foundArships.containsAll(expectedFoundAirship));
+        assertEquals(expectedFoundAirship, foundArships);
     }
 
     @Test
