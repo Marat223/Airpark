@@ -3,11 +3,11 @@ package org.mustafin.airpark;
 import java.util.Arrays;
 import java.util.List;
 
-import org.mustafin.airpark.airship.Airship;
-import org.mustafin.airpark.airship.AirshipParameterEnum;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.exception.NotDefinedSortingType;
+import org.mustafin.airpark.item.airship.Airship;
+import org.mustafin.airpark.item.airship.AirshipParameterEnum;
 import org.mustafin.airpark.search.Search;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 import org.mustafin.airpark.sort.AirshipSorter;
@@ -28,23 +28,23 @@ public class AirPark {
         Airship airship9 = new Airship("Hindenburg", AirshipType.CEPELINE, 50, 100000, 1200);
 
         AirshipCompany airshipOwner1 = new AirshipCompany("Belavia", 10);
-        airshipOwner1.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipOwner1.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipOwner1.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipOwner1.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
 
         AirshipCompany airshipOwner2 = new AirshipCompany("Lufthansa", 36);
-        airshipOwner2.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipOwner2.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipOwner2.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipOwner2.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
 
-        airshipOwner1.addAirShip(airship0);
-        airshipOwner1.addAirShip(airship1);
-        airshipOwner1.addAirShip(airship2);
-        airshipOwner1.addAirShip(airship3);
-        airshipOwner1.addAirShip(airship4);
-        airshipOwner2.addAirShip(airship5);
-        airshipOwner2.addAirShip(airship6);
-        airshipOwner2.addAirShip(airship7);
-        airshipOwner2.addAirShip(airship8);
-        airshipOwner2.addAirShip(airship9);
+        airshipOwner1.addAirship(airship0);
+        airshipOwner1.addAirship(airship1);
+        airshipOwner1.addAirship(airship2);
+        airshipOwner1.addAirship(airship3);
+        airshipOwner1.addAirship(airship4);
+        airshipOwner2.addAirship(airship5);
+        airshipOwner2.addAirship(airship6);
+        airshipOwner2.addAirship(airship7);
+        airshipOwner2.addAirship(airship8);
+        airshipOwner2.addAirship(airship9);
 
         List<AirshipCompany> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
 

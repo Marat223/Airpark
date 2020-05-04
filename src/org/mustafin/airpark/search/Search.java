@@ -2,8 +2,9 @@ package org.mustafin.airpark.search;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.mustafin.airpark.airship.Airship;
+
 import org.mustafin.airpark.company.AirshipCompany;
+import org.mustafin.airpark.item.airship.Airship;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 public class Search {

@@ -7,11 +7,11 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mustafin.airpark.airship.Airship;
-import org.mustafin.airpark.airship.AirshipParameterEnum;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.exception.NotDefinedSortingType;
+import org.mustafin.airpark.item.airship.Airship;
+import org.mustafin.airpark.item.airship.AirshipParameterEnum;
 
 public class SortTest {
 
@@ -31,13 +31,13 @@ public class SortTest {
         airship1 = new Airship("SuperJet 100", AirshipType.AIRPLANE, 100, 30000, 1000);
 
         airshipCompany = new AirshipCompany("Belavia", 10);
-        airshipCompany.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
-        airshipCompany.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipCompany.setAvaliableAirshipsTypes(AirshipType.CEPELINE);
+        airshipCompany.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipCompany.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipCompany.addAvaliableAirshipsTypes(AirshipType.CEPELINE);
 
-        airshipCompany.addAirShip(airship1);
-        airshipCompany.addAirShip(airship2);
-        airshipCompany.addAirShip(airship3);
+        airshipCompany.addAirship(airship1);
+        airshipCompany.addAirship(airship2);
+        airshipCompany.addAirship(airship3);
 
         airshipSorter = new AirshipSorter();
     }

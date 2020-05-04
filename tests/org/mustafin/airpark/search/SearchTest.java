@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mustafin.airpark.airship.Airship;
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.company.AirshipCompany;
+import org.mustafin.airpark.item.airship.Airship;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 public class SearchTest {
@@ -42,22 +42,22 @@ public class SearchTest {
         airship6 = new Airship("Hindenburg", AirshipType.CEPELINE, 50, 100000, 1200);
 
         airshipCompany1 = new AirshipCompany("Belavia", 10);
-        airshipCompany1.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
-        airshipCompany1.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipCompany1.setAvaliableAirshipsTypes(AirshipType.CEPELINE);
+        airshipCompany1.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipCompany1.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipCompany1.addAvaliableAirshipsTypes(AirshipType.CEPELINE);
 
         airshipCompany2 = new AirshipCompany("LuftHansa", 36);
-        airshipCompany2.setAvaliableAirshipsTypes(AirshipType.AIRPLANE);
-        airshipCompany2.setAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipCompany2.setAvaliableAirshipsTypes(AirshipType.CEPELINE);
+        airshipCompany2.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipCompany2.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
+        airshipCompany2.addAvaliableAirshipsTypes(AirshipType.CEPELINE);
 
-        airshipCompany1.addAirShip(airship1);
-        airshipCompany1.addAirShip(airship2);
-        airshipCompany1.addAirShip(airship3);
+        airshipCompany1.addAirship(airship1);
+        airshipCompany1.addAirship(airship2);
+        airshipCompany1.addAirship(airship3);
 
-        airshipCompany2.addAirShip(airship4);
-        airshipCompany2.addAirShip(airship5);
-        airshipCompany2.addAirShip(airship6);
+        airshipCompany2.addAirship(airship4);
+        airshipCompany2.addAirship(airship5);
+        airshipCompany2.addAirship(airship6);
 
         airshipCompanies = Arrays.asList(airshipCompany1, airshipCompany2);
 

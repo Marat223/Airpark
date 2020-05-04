@@ -1,12 +1,13 @@
 package org.mustafin.airpark.sort;
 
-import org.mustafin.airpark.airship.AirshipParameterEnum;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import org.mustafin.airpark.airship.Airship;
+
 import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.exception.NotDefinedSortingType;
+import org.mustafin.airpark.item.airship.Airship;
+import org.mustafin.airpark.item.airship.AirshipParameterEnum;
 
 public class AirshipSorter {
 

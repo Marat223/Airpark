@@ -1,4 +1,4 @@
-package org.mustafin.airpark.airship;
+package org.mustafin.airpark.item.airship;
 
 import java.util.Objects;
 import org.mustafin.airpark.airshipType.AirshipType;
