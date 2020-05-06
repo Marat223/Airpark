@@ -5,10 +5,11 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
-import org.mustafin.airpark.airshipType.AirshipType;
+import org.mustafin.airpark.annotation.NewClass;
 import org.mustafin.airpark.item.vehicle.AbstracVehicle;
 import org.mustafin.airpark.item.vehicle.VehicleType;
 
+@NewClass(id=1)
 public class CompanyParametrized<T extends AbstracVehicle> {
 
     private int id;

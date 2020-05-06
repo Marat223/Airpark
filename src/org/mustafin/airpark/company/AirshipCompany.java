@@ -7,8 +7,10 @@ import java.util.Objects;
 import java.util.Optional;
 
 import org.mustafin.airpark.airshipType.AirshipType;
+import org.mustafin.airpark.annotation.OldClass;
 import org.mustafin.airpark.item.airship.Airship;
 
+@OldClass(id = 1)
 public class AirshipCompany {
 
     private int id;
@@ -62,7 +64,7 @@ public class AirshipCompany {
     public boolean removeAirship(int id) {
 	return airshipsPark.removeIf(airship -> airship.getId() == id);
     }
-    
+
     public EnumSet<AirshipType> getAllowedAirshipTypes() {
 	return allowedAirshipTypes;
     }
