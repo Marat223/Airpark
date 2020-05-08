@@ -14,9 +14,9 @@ public class AirPark {
 //	functionality.check();
 
 	AirshipCompany airshipCompany = new AirshipCompany("Belavia", 10);
-	LastVersionCompanyCreator<AirshipCompany> companyReplacer = new LastVersionCompanyCreator();
-	companyReplacer.createInstance1(airshipCompany);
-	
+	LastVersionCompanyCreator<AirshipCompany> companyCreator = new LastVersionCompanyCreator();
+	airshipCompany = (AirshipCompany) companyCreator.createInstance(airshipCompany);
+
     }
 
 }
