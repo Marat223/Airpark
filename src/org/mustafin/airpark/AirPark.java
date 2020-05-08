@@ -1,6 +1,6 @@
 package org.mustafin.airpark;
 
-import org.mustafin.airpark.annotation.CompanyProxyCreator;
+import org.mustafin.airpark.annotation.LastVersionCompanyCreator;
 import org.mustafin.airpark.company.AirshipCompany;
 
 public class AirPark {
@@ -14,8 +14,9 @@ public class AirPark {
 //	functionality.check();
 
 	AirshipCompany airshipCompany = new AirshipCompany("Belavia", 10);
-	CompanyProxyCreator companyReplacer = new CompanyProxyCreator();
-	companyReplacer.findMatchedId(FQN_ORIGINAL, FQN_PROXY);
+	LastVersionCompanyCreator<AirshipCompany> companyReplacer = new LastVersionCompanyCreator();
+	companyReplacer.createInstance1(airshipCompany);
+	
     }
 
 }
