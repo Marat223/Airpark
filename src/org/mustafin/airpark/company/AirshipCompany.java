@@ -11,7 +11,7 @@ import org.mustafin.airpark.annotation.OldClass;
 import org.mustafin.airpark.item.airship.Airship;
 
 @OldClass(id = 1)
-public class AirshipCompany {
+public class AirshipCompany implements ICompany {
 
     private int id;
     private String companyName;
@@ -31,28 +31,34 @@ public class AirshipCompany {
 	this.id = lsdtId++;
     }
 
+    @Override
     public int getId() {
 	return id;
     }
 
+    @Override
     public String getCompanyName() {
 	return companyName;
     }
 
+    @Override
     public void setCompanyName(String companyName) {
 	this.companyName = companyName;
     }
 
-    public List<Airship> getAirshipsPark() {
+    @Override
+    public List<Airship> getItemsPark() {
 	return airshipsPark;
     }
 
-    public void setAirshipsPark(List<Airship> airshipsPark) {
+    @Override
+    public void setItemPark(List<Airship> airshipsPark) {
 	this.airshipsPark.clear();
 	this.airshipsPark.addAll(airshipsPark);
     }
 
-    public boolean addAirship(Airship airship) {
+    @Override
+    public boolean addItem(Airship airship) {
 	if (airshipsPark.size() < maxAirshipsCount && allowedAirshipTypes.contains(airship.getType())) { // TODO
 													 // allowedAirshipTypes.contains(airship.getType())
 	    airshipsPark.add(airship);
@@ -61,31 +67,38 @@ public class AirshipCompany {
 	return false;
     }
 
-    public boolean removeAirship(int id) {
+    @Override
+    public boolean removeItem(int id) {
 	return airshipsPark.removeIf(airship -> airship.getId() == id);
     }
 
-    public EnumSet<AirshipType> getAllowedAirshipTypes() {
+    @Override
+    public EnumSet<AirshipType> getAllowedItemTypes() {
 	return allowedAirshipTypes;
     }
 
-    public void addAvaliableAirshipsTypes(AirshipType airshipType) {
+    @Override
+    public void addAvaliableitemTypes(AirshipType airshipType) {
 	allowedAirshipTypes.add(airshipType);
     }
 
-    public void removeAvaliableAirshipsTypes(AirshipType airshipType) {
+    @Override
+    public void removeAvaliableItemTypes(AirshipType airshipType) {
 	allowedAirshipTypes.remove(airshipType);
     }
 
-    public int getMaxAirshipsCount() {
+    @Override
+    public int getMaxItemsCount() {
 	return maxAirshipsCount;
     }
 
-    public void setMaxAirshipsCount(int maxAirshipsCount) {
+    @Override
+    public void setMaxItemsCount(int maxAirshipsCount) {
 	this.maxAirshipsCount = maxAirshipsCount;
     }
 
-    public Optional<Airship> getAirshipById(int id) {
+    @Override
+    public Optional<Airship> getItemById(int id) {
 	return airshipsPark.stream().filter(airship -> airship.getId() == id).findFirst();
     }
 

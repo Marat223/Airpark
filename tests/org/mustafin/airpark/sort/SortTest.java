@@ -31,13 +31,13 @@ public class SortTest {
         airship1 = new Airship("SuperJet 100", AirshipType.AIRPLANE, 100, 30000, 1000);
 
         airshipCompany = new AirshipCompany("Belavia", 10);
-        airshipCompany.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
-        airshipCompany.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipCompany.addAvaliableAirshipsTypes(AirshipType.CEPELINE);
+        airshipCompany.addAvaliableitemTypes(AirshipType.AIRPLANE);
+        airshipCompany.addAvaliableitemTypes(AirshipType.HELICOPTER);
+        airshipCompany.addAvaliableitemTypes(AirshipType.CEPELINE);
 
-        airshipCompany.addAirship(airship1);
-        airshipCompany.addAirship(airship2);
-        airshipCompany.addAirship(airship3);
+        airshipCompany.addItem(airship1);
+        airshipCompany.addItem(airship2);
+        airshipCompany.addItem(airship3);
 
         airshipSorter = new AirshipSorter();
     }

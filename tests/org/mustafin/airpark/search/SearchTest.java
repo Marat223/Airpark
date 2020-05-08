@@ -42,22 +42,22 @@ public class SearchTest {
         airship6 = new Airship("Hindenburg", AirshipType.CEPELINE, 50, 100000, 1200);
 
         airshipCompany1 = new AirshipCompany("Belavia", 10);
-        airshipCompany1.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
-        airshipCompany1.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipCompany1.addAvaliableAirshipsTypes(AirshipType.CEPELINE);
+        airshipCompany1.addAvaliableitemTypes(AirshipType.AIRPLANE);
+        airshipCompany1.addAvaliableitemTypes(AirshipType.HELICOPTER);
+        airshipCompany1.addAvaliableitemTypes(AirshipType.CEPELINE);
 
         airshipCompany2 = new AirshipCompany("LuftHansa", 36);
-        airshipCompany2.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
-        airshipCompany2.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipCompany2.addAvaliableAirshipsTypes(AirshipType.CEPELINE);
+        airshipCompany2.addAvaliableitemTypes(AirshipType.AIRPLANE);
+        airshipCompany2.addAvaliableitemTypes(AirshipType.HELICOPTER);
+        airshipCompany2.addAvaliableitemTypes(AirshipType.CEPELINE);
 
-        airshipCompany1.addAirship(airship1);
-        airshipCompany1.addAirship(airship2);
-        airshipCompany1.addAirship(airship3);
+        airshipCompany1.addItem(airship1);
+        airshipCompany1.addItem(airship2);
+        airshipCompany1.addItem(airship3);
 
-        airshipCompany2.addAirship(airship4);
-        airshipCompany2.addAirship(airship5);
-        airshipCompany2.addAirship(airship6);
+        airshipCompany2.addItem(airship4);
+        airshipCompany2.addItem(airship5);
+        airshipCompany2.addItem(airship6);
 
         airshipCompanies = Arrays.asList(airshipCompany1, airshipCompany2);
 

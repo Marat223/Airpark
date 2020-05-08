@@ -38,7 +38,7 @@ public class AirshipSorter {
     }
 
     private List<Airship> sortAirships(AirshipCompany company, Comparator comparator) {
-        Collections.sort(company.getAirshipsPark(), comparator);
-        return company.getAirshipsPark();
+        Collections.sort(company.getItemsPark(), comparator);
+        return company.getItemsPark();
     }
 }

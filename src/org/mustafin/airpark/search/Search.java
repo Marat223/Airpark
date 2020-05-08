@@ -14,7 +14,7 @@ public class Search {
     public List<Airship> proceed(List<AirshipCompany> airshipOwners, SearchInputParameters searchInputParameters) {
         final List<Airship> foundedAirship = new ArrayList<>();
         airshipOwners.forEach(airshipOwner -> {
-            airshipOwner.getAirshipsPark().forEach(airship -> {
+            airshipOwner.getItemsPark().forEach(airship -> {
                 if (null != searchInputParameters.getType()) {
                     matchValue = airship.getType() == searchInputParameters.getType();
                 }

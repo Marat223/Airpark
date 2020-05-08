@@ -27,23 +27,23 @@ public class Functionality {
         Airship airship9 = new Airship("Hindenburg", AirshipType.CEPELINE, 50, 100000, 1200);
 
         AirshipCompany airshipOwner1 = new AirshipCompany("Belavia", 10);
-        airshipOwner1.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipOwner1.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipOwner1.addAvaliableitemTypes(AirshipType.HELICOPTER);
+        airshipOwner1.addAvaliableitemTypes(AirshipType.AIRPLANE);
 
         AirshipCompany airshipOwner2 = new AirshipCompany("Lufthansa", 36);
-        airshipOwner2.addAvaliableAirshipsTypes(AirshipType.HELICOPTER);
-        airshipOwner2.addAvaliableAirshipsTypes(AirshipType.AIRPLANE);
+        airshipOwner2.addAvaliableitemTypes(AirshipType.HELICOPTER);
+        airshipOwner2.addAvaliableitemTypes(AirshipType.AIRPLANE);
 
-        airshipOwner1.addAirship(airship0);
-        airshipOwner1.addAirship(airship1);
-        airshipOwner1.addAirship(airship2);
-        airshipOwner1.addAirship(airship3);
-        airshipOwner1.addAirship(airship4);
-        airshipOwner2.addAirship(airship5);
-        airshipOwner2.addAirship(airship6);
-        airshipOwner2.addAirship(airship7);
-        airshipOwner2.addAirship(airship8);
-        airshipOwner2.addAirship(airship9);
+        airshipOwner1.addItem(airship0);
+        airshipOwner1.addItem(airship1);
+        airshipOwner1.addItem(airship2);
+        airshipOwner1.addItem(airship3);
+        airshipOwner1.addItem(airship4);
+        airshipOwner2.addItem(airship5);
+        airshipOwner2.addItem(airship6);
+        airshipOwner2.addItem(airship7);
+        airshipOwner2.addItem(airship8);
+        airshipOwner2.addItem(airship9);
 
         List<AirshipCompany> airshipOwners = Arrays.asList(airshipOwner1, airshipOwner2);
 

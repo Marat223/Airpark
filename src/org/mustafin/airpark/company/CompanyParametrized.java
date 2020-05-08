@@ -5,12 +5,14 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
+import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.annotation.NewClass;
+import org.mustafin.airpark.item.airship.Airship;
 import org.mustafin.airpark.item.vehicle.AbstracVehicle;
 import org.mustafin.airpark.item.vehicle.VehicleType;
 
 @NewClass(id=1)
-public class CompanyParametrized<T extends AbstracVehicle> {
+public class CompanyParametrized<T extends AbstracVehicle> implements ICompany{
 
     private int id;
     private String companyName;
@@ -46,7 +48,7 @@ public class CompanyParametrized<T extends AbstracVehicle> {
 	return itemsPark;
     }
 
-    public void setItemsPark(List<T> itemsPark) {
+    public void setItemPark(List<T> itemsPark) {
 	this.itemsPark.clear();
 	this.itemsPark.addAll(itemsPark);
     }
@@ -76,11 +78,11 @@ public class CompanyParametrized<T extends AbstracVehicle> {
 	allowedItemTypes.remove(vehicleType);
     }
 
-    public int getMaxItemCount() {
+    public int getMaxItemsCount() {
 	return maxItemCount;
     }
 
-    public void setMaxItemCount(int maxItemCount) {
+    public void setMaxItemsCount(int maxItemCount) {
 	this.maxItemCount = maxItemCount;
     }
 
@@ -136,5 +138,12 @@ public class CompanyParametrized<T extends AbstracVehicle> {
 	return "CompanyParametrized [id=" + id + ", companyName=" + companyName + ", itemsPark=" + itemsPark
 		+ ", maxItemCount=" + maxItemCount + "]";
     }
+
+   
+
+
+
+
+
 
 }
