@@ -5,14 +5,15 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
-import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.annotation.NewClass;
-import org.mustafin.airpark.item.airship.Airship;
-import org.mustafin.airpark.item.vehicle.AbstracVehicle;
+import org.mustafin.airpark.exception.WrongItemTypeEnumeration;
+import org.mustafin.airpark.item.ItemType;
+import org.mustafin.airpark.item.vehicle.AbstractVehicle;
+import org.mustafin.airpark.item.vehicle.Vehicle;
 import org.mustafin.airpark.item.vehicle.VehicleType;
 
-@NewClass(id=1)
-public class CompanyParametrized<T extends AbstracVehicle> implements ICompany{
+@NewClass(id = 1)
+public class CompanyParametrized<T extends AbstractVehicle> implements ICompany {
 
     private int id;
     private String companyName;
@@ -32,60 +33,82 @@ public class CompanyParametrized<T extends AbstracVehicle> implements ICompany{
 	this.id = lsdtId++;
     }
 
+    @Override
     public int getId() {
 	return id;
     }
 
+    @Override
     public String getCompanyName() {
 	return companyName;
     }
 
+    @Override
     public void setCompanyName(String companyName) {
 	this.companyName = companyName;
     }
 
+    @Override
     public List<T> getItemsPark() {
 	return itemsPark;
     }
 
-    public void setItemPark(List<T> itemsPark) {
+    @Override
+    public void setItemPark(List itemsPark) {
 	this.itemsPark.clear();
 	this.itemsPark.addAll(itemsPark);
     }
 
-    public boolean addItem(T t) {
+    @Override
+    public boolean addItem(Object vehicle) {
 	if (itemsPark.size() < maxItemCount) { // TODO
 	    // allowedAirshipTypes.contains(airship.getType())
-	    itemsPark.add(t);
+	    if (vehicle.getClass() instanceof Vehicle) {
+		    throw new WrongItemTypeEnumeration(": shold be \"VehicleType\" enumeration");
+		}
+	    itemsPark.add(vehicle);
 	    return true;
 	}
 	return false;
     }
-    
+
+    @Override
     public boolean removeItem(int id) {
 	return itemsPark.removeIf(item -> item.getId() == id);
     }
-    
+
+    @Override
     public EnumSet<VehicleType> getAllowedItemTypes() {
 	return allowedItemTypes;
     }
-    
-    public void addAvaliableItemTypes(VehicleType vehicleType) {
-	allowedItemTypes.add(vehicleType);
+
+    @Override
+    public void addAvaliableitemTypes(ItemType vehicleType) {
+	if (vehicleType.getClass() != VehicleType.class) {
+	    throw new WrongItemTypeEnumeration(": shold be \"VehicleType\" enumeration");
+	}
+	allowedItemTypes.add((VehicleType) vehicleType);
     }
-    
-    public void removeAvaliableItemTypes(VehicleType vehicleType) {
+
+    @Override
+    public void removeAvaliableItemTypes(ItemType vehicleType) {
+	if (vehicleType.getClass() != VehicleType.class) {
+	    throw new WrongItemTypeEnumeration(": shold be \"VehicleType\" enumeration");
+	}
 	allowedItemTypes.remove(vehicleType);
     }
 
+    @Override
     public int getMaxItemsCount() {
 	return maxItemCount;
     }
 
+    @Override
     public void setMaxItemsCount(int maxItemCount) {
 	this.maxItemCount = maxItemCount;
     }
 
+    @Override
     public Optional<T> getItemById(int id) {
 	return itemsPark.stream().filter(airship -> airship.getId() == id).findFirst();
     }
@@ -139,11 +162,6 @@ public class CompanyParametrized<T extends AbstracVehicle> implements ICompany{
 		+ ", maxItemCount=" + maxItemCount + "]";
     }
 
-   
-
-
-
-
-
+}
 
 }

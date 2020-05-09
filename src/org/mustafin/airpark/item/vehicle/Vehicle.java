@@ -1,6 +1,6 @@
 package org.mustafin.airpark.item.vehicle;
 
-public class Vehicle extends AbstracVehicle {
+public class Vehicle extends AbstractVehicle {
 
     private String name;
     private VehicleType type;

@@ -1,6 +1,8 @@
 package org.mustafin.airpark.airshipType;
 
-public enum AirshipType {
+import org.mustafin.airpark.item.ItemType;
+
+public enum AirshipType implements ItemType{
 
     AIRPLANE(1), HELICOPTER(2), CEPELINE(3);
 

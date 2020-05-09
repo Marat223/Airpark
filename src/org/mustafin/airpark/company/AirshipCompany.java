@@ -8,7 +8,10 @@ import java.util.Optional;
 
 import org.mustafin.airpark.airshipType.AirshipType;
 import org.mustafin.airpark.annotation.OldClass;
+import org.mustafin.airpark.exception.WrongItemTypeEnumeration;
+import org.mustafin.airpark.item.ItemType;
 import org.mustafin.airpark.item.airship.Airship;
+import org.mustafin.airpark.item.vehicle.VehicleType;
 
 @OldClass(id = 1)
 public class AirshipCompany implements ICompany {
@@ -52,7 +55,8 @@ public class AirshipCompany implements ICompany {
     }
 
     @Override
-    public void setItemPark(List<Airship> airshipsPark) {
+    public void setItemPark(List airshipsPark) {
+	airshipsPark.getClass().getGenericInterfaces()
 	this.airshipsPark.clear();
 	this.airshipsPark.addAll(airshipsPark);
     }
@@ -78,13 +82,19 @@ public class AirshipCompany implements ICompany {
     }
 
     @Override
-    public void addAvaliableitemTypes(AirshipType airshipType) {
-	allowedAirshipTypes.add(airshipType);
+    public void addAvaliableitemTypes(ItemType airshipType) {
+	if (airshipType.getClass() != AirshipType.class) {
+	    throw new WrongItemTypeEnumeration(": shold be \"VehicleType\" enumeration");
+	}
+	allowedAirshipTypes.add((AirshipType) airshipType);
     }
 
     @Override
-    public void removeAvaliableItemTypes(AirshipType airshipType) {
-	allowedAirshipTypes.remove(airshipType);
+    public void removeAvaliableItemTypes(ItemType airshipType) {
+	if (airshipType.getClass() != AirshipType.class) {
+	    throw new WrongItemTypeEnumeration(": shold be \"VehicleType\" enumeration");
+	}
+	allowedAirshipTypes.remove((AirshipType) airshipType);
     }
 
     @Override

@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
-import org.mustafin.airpark.airshipType.AirshipType;
+import org.mustafin.airpark.item.ItemType;
 
 public interface ICompany {
 
@@ -24,9 +24,9 @@ public interface ICompany {
 
     public EnumSet getAllowedItemTypes();
 
-    public void addAvaliableitemTypes(AirshipType airshipType);
+    public void addAvaliableitemTypes(ItemType ItemType);
 
-    public void removeAvaliableItemTypes(AirshipType airshipType);
+    public void removeAvaliableItemTypes(ItemType ItemType);
 
     public int getMaxItemsCount();
 
