@@ -56,7 +56,7 @@ public class AirshipCompany implements ICompany {
 
     @Override
     public void setItemPark(List airshipsPark) {
-	airshipsPark.getClass().getGenericInterfaces()
+	airshipsPark.getClass().getGeneric
 	this.airshipsPark.clear();
 	this.airshipsPark.addAll(airshipsPark);
     }
