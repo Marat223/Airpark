@@ -18,7 +18,7 @@ public interface ICompany {
 
     public void setItemPark(List itemsPark);
 
-    public boolean addItem(Object airship);
+    public boolean addItem(Optional airship);
 
     public boolean removeItem(int id);
 

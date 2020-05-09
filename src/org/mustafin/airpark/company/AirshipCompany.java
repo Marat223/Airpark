@@ -56,17 +56,24 @@ public class AirshipCompany implements ICompany {
 
     @Override
     public void setItemPark(List airshipsPark) {
-	airshipsPark.getClass().getGeneric
 	this.airshipsPark.clear();
 	this.airshipsPark.addAll(airshipsPark);
     }
 
     @Override
-    public boolean addItem(Airship airship) {
-	if (airshipsPark.size() < maxAirshipsCount && allowedAirshipTypes.contains(airship.getType())) { // TODO
-													 // allowedAirshipTypes.contains(airship.getType())
-	    airshipsPark.add(airship);
-	    return true;
+    public boolean addItem(Optional airship) {
+	if (airship.isPresent()) {
+	    if (airship.get() instanceof Airship) {
+		if (airshipsPark.size() < maxAirshipsCount
+			&& allowedAirshipTypes.contains(((Airship) airship.get()).getType())) { // TODO
+		    // allowedAirshipTypes.contains(airship.getType())
+		    airshipsPark.add((Airship) airship.get());
+		    return true;
+		}
+		return false;
+	    } else {
+		throw new WrongItemTypeEnumeration(": shold be \"Vehicle\" entity");
+	    }
 	}
 	return false;
     }

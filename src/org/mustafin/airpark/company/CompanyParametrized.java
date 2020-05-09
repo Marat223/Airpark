@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.mustafin.airpark.annotation.NewClass;
 import org.mustafin.airpark.exception.WrongItemTypeEnumeration;
 import org.mustafin.airpark.item.ItemType;
+import org.mustafin.airpark.item.airship.Airship;
 import org.mustafin.airpark.item.vehicle.AbstractVehicle;
 import org.mustafin.airpark.item.vehicle.Vehicle;
 import org.mustafin.airpark.item.vehicle.VehicleType;
@@ -60,14 +61,18 @@ public class CompanyParametrized<T extends AbstractVehicle> implements ICompany 
     }
 
     @Override
-    public boolean addItem(Object vehicle) {
-	if (itemsPark.size() < maxItemCount) { // TODO
-	    // allowedAirshipTypes.contains(airship.getType())
-	    if (vehicle.getClass() instanceof Vehicle) {
-		    throw new WrongItemTypeEnumeration(": shold be \"VehicleType\" enumeration");
+    public boolean addItem(Optional vehicle) {
+	if (vehicle.isPresent()) {
+	    if (vehicle.get() instanceof AbstractVehicle) {
+		if (itemsPark.size() < maxItemCount && allowedItemTypes.contains(((Airship) vehicle.get()).getType())) { // TODO
+		    // allowedAirshipTypes.contains(airship.getType())
+		    itemsPark.add((T) vehicle.get());
+		    return true;
 		}
-	    itemsPark.add(vehicle);
-	    return true;
+		return false;
+	    } else {
+		throw new WrongItemTypeEnumeration(": shold be \"Vehicle\" entity");
+	    }
 	}
 	return false;
     }
@@ -161,7 +166,5 @@ public class CompanyParametrized<T extends AbstractVehicle> implements ICompany 
 	return "CompanyParametrized [id=" + id + ", companyName=" + companyName + ", itemsPark=" + itemsPark
 		+ ", maxItemCount=" + maxItemCount + "]";
     }
-
-}
 
 }
