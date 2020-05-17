@@ -1,6 +1,6 @@
 package org.mustafin.airpark.search.util;
 
-import org.mustafin.airpark.airshipType.AirshipType;
+import org.mustafin.airpark.itemType.AirshipType;
 
 public class SearchInputParameters {
 	private String airshipName;

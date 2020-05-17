@@ -1,7 +1,8 @@
 package org.mustafin.airpark.item.airship;
 
 import java.util.Objects;
-import org.mustafin.airpark.airshipType.AirshipType;
+
+import org.mustafin.airpark.itemType.AirshipType;
 
 public class Airship {
 

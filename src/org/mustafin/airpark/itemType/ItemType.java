@@ -1,4 +1,4 @@
-package org.mustafin.airpark.item;
+package org.mustafin.airpark.itemType;
 
 public interface ItemType {
 

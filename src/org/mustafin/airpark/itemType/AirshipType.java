@@ -1,6 +1,4 @@
-package org.mustafin.airpark.airshipType;
-
-import org.mustafin.airpark.item.ItemType;
+package org.mustafin.airpark.itemType;
 
 public enum AirshipType implements ItemType{
 

@@ -1,6 +1,4 @@
-package org.mustafin.airpark.item.vehicle;
-
-import org.mustafin.airpark.item.ItemType;
+package org.mustafin.airpark.itemType;
 
 public enum VehicleType implements ItemType{
     

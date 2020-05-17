@@ -1,5 +1,7 @@
 package org.mustafin.airpark.item.vehicle;
 
+import org.mustafin.airpark.itemType.VehicleType;
+
 public class Vehicle extends AbstractVehicle {
 
     private String name;
