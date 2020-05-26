@@ -15,8 +15,6 @@ import org.mustafin.airpark.item.airship.AirshipParameterEnum;
 import org.mustafin.airpark.itemType.AirshipType;
 
 public class SortTest {
-
-    // TODO remove static for each fields
     private Optional<Airship> airship2;
     private Optional<Airship> airship3;
     private Optional<Airship> airship1;
@@ -89,16 +87,16 @@ public class SortTest {
     }
 
     @Test(expected = NotDefinedSortingType.class)
-    public void test_sortByNull() {// TODO remove empty lines
+    public void test_sortByNull() {
 	airshipSorter.proceed(airshipCompany, null);
     }
+    
     // TODO add default sort test
-
     @Test
     public void test_sortByDefault() {
 	List<Airship> expectedFoundAirship = Arrays.asList(airship3.get(), airship2.get(), airship1.get());
 
-	List<Airship> sortedAirships = airshipSorter.proceed(airshipCompany, AirshipParameterEnum.STUB_PARAMETER);
+	List<Airship> sortedAirships = airshipSorter.proceed(airshipCompany, AirshipParameterEnum.STUB_PARAMETER);//TODO it is not default sort. add method call without sort param
 
 	assertEquals(expectedFoundAirship, sortedAirships);
     }

@@ -55,18 +55,17 @@ public class AirshipCompany implements ICompany {
     }
 
     @Override
-    public void setItemPark(List airshipsPark) {
+    public void setItemPark(List airshipsPark) { //TODO List should be parametrized
 	this.airshipsPark.clear();
 	this.airshipsPark.addAll(airshipsPark);
     }
 
     @Override
-    public boolean addItem(Optional airship) {
+    public boolean addItem(Optional airship) { //TODO optional not required, you could remove it
 	if (airship.isPresent()) {
 	    if (airship.get() instanceof Airship) {
 		if (airshipsPark.size() < maxAirshipsCount
-			&& allowedAirshipTypes.contains(((Airship) airship.get()).getType())) { // TODO
-		    // allowedAirshipTypes.contains(airship.getType())
+			&& allowedAirshipTypes.contains(((Airship) airship.get()).getType())) {
 		    airshipsPark.add((Airship) airship.get());
 		    return true;
 		}

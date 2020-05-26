@@ -55,17 +55,16 @@ public class CompanyParametrized<T extends AbstractVehicle> implements ICompany 
     }
 
     @Override
-    public void setItemPark(List itemsPark) {
+    public void setItemPark(List itemsPark) { //todo add parametrization with T
 	this.itemsPark.clear();
 	this.itemsPark.addAll(itemsPark);
     }
 
     @Override
-    public boolean addItem(Optional vehicle) {
+    public boolean addItem(Optional vehicle) {//TODO remove optional
 	if (vehicle.isPresent()) {
 	    if (vehicle.get() instanceof AbstractVehicle) {
-		if (itemsPark.size() < maxItemCount && allowedItemTypes.contains(((Airship) vehicle.get()).getType())) { // TODO
-		    // allowedAirshipTypes.contains(airship.getType())
+		if (itemsPark.size() < maxItemCount && allowedItemTypes.contains(((Airship) vehicle.get()).getType())) {
 		    itemsPark.add((T) vehicle.get());
 		    return true;
 		}

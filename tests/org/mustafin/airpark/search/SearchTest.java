@@ -16,7 +16,6 @@ import org.mustafin.airpark.search.util.SearchInputParameters;
 
 public class SearchTest {
 
-    // TODO remove static for each fields
     private Optional<Airship> airship1;
     private Optional<Airship> airship2;
     private Optional<Airship> airship3;
@@ -67,7 +66,7 @@ public class SearchTest {
 
     @Before
     public void cleanSearchInputParameters() {
-	// TODO you have the same line at the end of @Before
+	// TODO double before
 	searchInputParameters = new SearchInputParameters();
     }
 
@@ -80,7 +79,7 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
-	// TODO arrange should be before act, below the same
+	// TODO arrange (expected) should be before act, below the same
 
 	assertEquals(expectedFoundAirship, foundArships);
     }
@@ -91,6 +90,7 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
+	// TODO arrange (expected) should be before act, below the same
 	List<Airship> expectedFoundAirship = Arrays.asList(airship1.get(), airship6.get());
 
 	assertEquals(expectedFoundAirship, foundArships);
@@ -102,6 +102,7 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
+	// TODO arrange (expected) should be before act, below the same
 	List<Airship> expectedFoundAirship = Arrays.asList(airship1.get(), airship2.get(), airship4.get(),
 		airship5.get(), airship6.get());
 
@@ -114,8 +115,9 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
+	// TODO arrange (expected) should be before act, below the same
 	List<Airship> expectedFoundAirship = Arrays.asList(airship1.get(), airship2.get(), airship6.get());
-	// TODO mixed asserts, rewrite it to three asserts
+
 	assertEquals(expectedFoundAirship, foundArships);
     }
 
@@ -125,6 +127,7 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
+	// TODO arrange (expected) should be before act, below the same
 	List<Airship> expectedFoundAirship = Arrays.asList(airship6.get());
 
 	assertEquals(expectedFoundAirship, foundArships);
@@ -136,6 +139,7 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
+	// TODO arrange (expected) should be before act, below the same
 	List<Airship> expectedFoundAirship = Arrays.asList(airship4.get());
 
 	assertEquals(expectedFoundAirship, foundArships);
@@ -147,6 +151,7 @@ public class SearchTest {
 
 	List<Airship> foundArships = search.proceed(airshipCompanies, searchInputParameters);
 
+	// TODO arrange (expected) should be before act, below the same
 	List<Airship> expectedFoundAirship = Collections.EMPTY_LIST;
 
 	assertEquals(expectedFoundAirship, foundArships);

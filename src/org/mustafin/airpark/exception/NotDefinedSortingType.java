@@ -1,6 +1,5 @@
-//TODO remove signature
 package org.mustafin.airpark.exception;
-//TODO remove
+
 public class NotDefinedSortingType extends IllegalArgumentException {
 
     private final static String message = ": Sorting type can not be \"null\"";
