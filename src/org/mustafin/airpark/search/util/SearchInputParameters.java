@@ -12,7 +12,7 @@ public class SearchInputParameters {
 	public SearchInputParameters() {
 	}
 
-	public SearchInputParameters(String name, AirshipType type, int capacity, int carrying, int maxDistance) {
+	public SearchInputParameters(Class searchtypeClazz,  String name, AirshipType type, int capacity, int carrying, int maxDistance) {
 		this.airshipName = name;
 		this.type = type;
 		this.capacity = capacity;
