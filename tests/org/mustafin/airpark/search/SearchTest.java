@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.item.airship.Airship;
-import org.mustafin.airpark.itemType.AirshipType;
+import org.mustafin.airpark.item.itemType.AirshipType;
 import org.mustafin.airpark.search.util.SearchInputParameters;
 
 public class SearchTest {

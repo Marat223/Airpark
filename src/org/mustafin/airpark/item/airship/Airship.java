@@ -2,7 +2,7 @@ package org.mustafin.airpark.item.airship;
 
 import java.util.Objects;
 
-import org.mustafin.airpark.itemType.AirshipType;
+import org.mustafin.airpark.item.itemType.AirshipType;
 
 public class Airship {
 

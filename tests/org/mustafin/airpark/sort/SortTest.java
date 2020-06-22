@@ -12,7 +12,7 @@ import org.mustafin.airpark.company.AirshipCompany;
 import org.mustafin.airpark.exception.NotDefinedSortingType;
 import org.mustafin.airpark.item.airship.Airship;
 import org.mustafin.airpark.item.airship.AirshipParameterEnum;
-import org.mustafin.airpark.itemType.AirshipType;
+import org.mustafin.airpark.item.itemType.AirshipType;
 
 public class SortTest {
     private Optional<Airship> airship2;

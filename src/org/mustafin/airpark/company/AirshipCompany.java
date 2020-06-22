@@ -9,9 +9,8 @@ import java.util.Optional;
 import org.mustafin.airpark.annotation.OldClass;
 import org.mustafin.airpark.exception.WrongItemTypeEnumeration;
 import org.mustafin.airpark.item.airship.Airship;
-import org.mustafin.airpark.itemType.AirshipType;
-import org.mustafin.airpark.itemType.ItemType;
-import org.mustafin.airpark.itemType.VehicleType;
+import org.mustafin.airpark.item.itemType.AirshipType;
+import org.mustafin.airpark.item.itemType.ItemType;
 
 @OldClass(id = 1)
 public class AirshipCompany implements ICompany {

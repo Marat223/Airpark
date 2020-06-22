@@ -8,10 +8,9 @@ import java.util.Optional;
 import org.mustafin.airpark.annotation.NewClass;
 import org.mustafin.airpark.exception.WrongItemTypeEnumeration;
 import org.mustafin.airpark.item.airship.Airship;
+import org.mustafin.airpark.item.itemType.ItemType;
+import org.mustafin.airpark.item.itemType.VehicleType;
 import org.mustafin.airpark.item.vehicle.AbstractVehicle;
-import org.mustafin.airpark.item.vehicle.Vehicle;
-import org.mustafin.airpark.itemType.ItemType;
-import org.mustafin.airpark.itemType.VehicleType;
 
 @NewClass(id = 1)
 public class CompanyParametrized<T extends AbstractVehicle> implements ICompany {

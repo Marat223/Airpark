@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
-import org.mustafin.airpark.itemType.ItemType;
+import org.mustafin.airpark.item.itemType.ItemType;
 
 public interface ICompany {
 
